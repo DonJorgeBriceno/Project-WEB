@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="jQuery/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css">
+    <script src="Bootstrap/js/bootstrap.min.js"></script>  
+</head>
+
+<body>
+  <table border="1">
+    <tr>
+      <td>Celda</td>
+      <td colspan="1" rowspan="2">Celda cs2 rs2</td>
+    </tr>
+    <tr>
+      <td>Celda</td>
+    </tr>
+  </table>
+  <table border="1">
+    <colgroup span="2" width="100"></colgroup>
+    <colgroup span="2" width="100"></colgroup>
+    <tr>
+      <td colspan="3">Datos</td>
+      <td colspan="2">Operaciones</td>
+    </tr>
+    <tr>
+      <td>Nombres</td>
+      <td>Email</td>
+      <td>Contraseña</td>
+
+      <td>Modificar</td>
+      <td>Eliminar</td>
+    </tr>
+  </table>
+
+  <button id="bn">¡Reaccionar!</button>
+ 
+  <input type="text" id="Email">
+  <span id="emailOK"></span>
+  
+  <input type="text" id="correo">
+  <span id="myEmail"></span>
+  
+  
+  <script>
+    document.getElementById('Email').addEventListener('input', function() {
+
+    campo = event.target;
+    valido = document.getElementById('emailOK');
+        
+    emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    //Se muestra un texto a modo de ejemplo, luego va a ser un icono
+    if (emailRegex.test(campo.value)) {
+      valido.innerText = "válido";
+    } else {
+      valido.innerText = "incorrecto";
+    }
+});
+
+var auxColor;
+$('#correo').keyup(function (e) {
+    var emailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    var EmailId = this.value;
+    valido = document.getElementById('myEmail');
+    if (emailRegex.test(EmailId)){
+        auxColor=true;
+        this.style.backgroundColor = "LightBlue";
+    }
+      
+    else{
+      auxColor=false;
+      this.style.backgroundColor = "LightPink";
+    }
+      
+});
+
+$("#validadorEmail").click(function (i) {
+                    if ($("#Email").style.backgroundColor == "LightPink") {
+                        console.log("No permitido");
+                        i.preventDefault();
+                    }
+                });
+  </script>
+
+       <table>
+           <td>
+        <div class="card" style="width: 27rem;">
+          <img class="card-img-top" src="Img/Tejedor.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a onclick="javascript:showModal();" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>        
+           </td>
+          <td>
+        <div class="card" style="width: 27rem;">
+          <img class="card-img-top" src="Img/Tejedor.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>        
+           </td>
+          <td>
+        <div class="card" style="width: 27rem;">
+          <img class="card-img-top" src="Img/Tejedor.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>        
+           </td>
+       </table>
+       
+       
+       
+       
+  <script src="script.js"></script>
+<script src="AlertifyJS/alertify.min.js"></script>
+<link rel="stylesheet" href="AlertifyJS/css/alertify.min.css">
+  
+  
+  <!-- Production version -->
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+</body>
+
+</html>
